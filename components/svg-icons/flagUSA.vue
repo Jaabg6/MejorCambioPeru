@@ -1,0 +1,20 @@
+<template>
+    <svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2.51465" y="7" width="28" height="16" fill="white"/>
+        <rect x="2.51465" y="11" width="28" height="2" fill="#FF2C2C"/>
+        <rect x="2.51465" y="15" width="28" height="2" fill="#FF2C2C"/>
+        <rect x="2.51465" y="19" width="28" height="2" fill="#FF2C2C"/>
+        <rect x="2.51465" y="23" width="28" height="2" fill="#FF2C2C"/>
+        <rect x="2.51465" y="7" width="28" height="2" fill="#FF2C2C"/>
+        <rect x="2.51465" y="7" width="14" height="10" fill="#004EA2"/>
+        <circle cx="5.51465" cy="9" r="1" fill="white"/>
+        <circle cx="5.51465" cy="12" r="1" fill="white"/>
+        <circle cx="5.51465" cy="15" r="1" fill="white"/>
+        <circle cx="9.51465" cy="9" r="1" fill="white"/>
+        <circle cx="9.51465" cy="12" r="1" fill="white"/>
+        <circle cx="9.51465" cy="15" r="1" fill="white"/>
+        <circle cx="13.5146" cy="9" r="1" fill="white"/>
+        <circle cx="13.5146" cy="12" r="1" fill="white"/>
+        <circle cx="13.5146" cy="15" r="1" fill="white"/>
+    </svg>
+</template>
