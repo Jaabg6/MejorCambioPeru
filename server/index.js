@@ -1,6 +1,7 @@
 const consola = require('consola');
 const { Nuxt, Builder } = require('nuxt');
 const { app, server } = require('./app');
+require('./db.js'); // this is a file that I created to store the data in db
 
 const config = require('../nuxt.config.js');
 config.dev = process.env.NODE_ENV !== 'production';

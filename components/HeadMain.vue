@@ -17,15 +17,15 @@
             <div class="col-span-5 self-center z-10">
                 <div class="bg-dark py-6 mx-10 rounded-lg shadow-lg shadow-black">
                     <!-- card title -->
-                    <h2 class="text-white font-mono antialiased text-center text-2xl">El mejor cambio hoy</h2>
+                    <h2 class="text-white font-mono antialiased text-center text-2xl">El mejor cambio para {{ textCompraoVenta }}</h2>
 
                         <!-- button change mode -->
                         <div class="inline-flex justify-center w-full rounded-md shadow-sm mt-2" role="group">
                             <button :class="[modoCompra == true ? 'focus:z-10 ring-2 ring-red-light text-lg bg-white' : 'bg-dark text-white hover:bg-red-light']" @click="buttonCompra()" type="button"  class="py-2 px-10 text-sm font-medium rounded-l-lg border border-gray-200">
-                                Compra: <span class="text-md font-bold ">{{ compra }}</span>
+                                Compra: <span class="text-md font-bold ">{{ exchange.compra }}</span>
                             </button>
                             <button :class="[ modoCompra == false ? 'focus:z-10 ring-2 ring-red-light text-lg bg-white' : 'bg-dark text-white hover:bg-red-light']" @click="buttonVenta()" type="button" class="py-2 px-10 text-sm font-medium rounded-r-md border border-gray-200">
-                                Venta: <span class="text-md font-bold ">{{ venta }}</span>
+                                Venta: <span class="text-md font-bold ">{{ exchange.venta }}</span>
                             </button>
                         </div>
                         <!-- button change mode -->
@@ -58,14 +58,14 @@
                             </div>
 
                             <!-- alert savings -->
-                            <div class="px-2 text-black font-mono antialiased mt-3 bg-white border rounded-lg font-black text-md">
-                                <p>Ahorras XXX Comparado con {{ secondExchange.title }} (top 2 actual)</p>
+                            <div class="px-2 text-black font-mono antialiased mt-3 bg-white border rounded-lg font-black text-sm">
+                                <p>Ahorras <span class="text-lg font-bold">{{ simbolMoney + comparePrices }} </span>  con <span class="text-lg font-bold"> {{ exchange.title }}</span> <br> Comparado con <span class="text-lg font-bold">{{ worstExchange.title }}</span></p>
                             </div>
                             <!-- alert savings-->
 
                             <!-- button Change Now -->
                             <div class="mt-10 ">
-                                <a href="#" class="text-center uppercase text-white font-bold font-mono antialiased focus:outline-none focus:shadow-outline border border-gray-200 rounded-lg py-4 block appearance-none leading-normal bg-dark hover:bg-white hover:text-black hover:shadow-red-light hover:shadow-lg">
+                                <a :href="exchange.link" class="text-center uppercase text-white font-bold font-mono antialiased focus:outline-none focus:shadow-outline border border-gray-200 rounded-lg py-4 block appearance-none leading-normal bg-dark hover:bg-white hover:text-black hover:shadow-red-light hover:shadow-lg">
                                     Cambiar Ahora
                                 </a>
                             </div>
@@ -103,17 +103,19 @@ import { mapGetters } from 'vuex'
 export default{
     data() {
         return {
-            compra: 3.885,
-            venta: 3.904,
-            modoCompra: false,
+            // compra: 3.885,
+            // venta: 3.904,
+            modoCompra: true,
             CantidadEnviada: '',
-            CantidadRecibida: 1000,
+            CantidadRecibida: 1000, // default
             actualizandoCompra: false,
             actualizandoVenta: false,
         };
     },
     mounted(){
-        this.CantidadEnviada =  this.roundNumber(this.CantidadRecibida * this.venta);
+        setTimeout(() => {
+            this.CantidadEnviada =  this.roundNumber(this.CantidadRecibida / this.exchange.compra);
+        }, 800);
     },
     methods: {
         buttonCompra() {
@@ -138,21 +140,21 @@ export default{
         ShowReceived(cantidad) {
 
             if (this.modoCompra) {
-                this.CantidadEnviada = this.roundNumber(cantidad / this.compra);
+                this.CantidadEnviada = this.roundNumber(cantidad / this.exchange.compra);
             } else {
-                this.CantidadEnviada = this.roundNumber(cantidad * this.venta);
+                this.CantidadEnviada = this.roundNumber(cantidad * this.exchange.venta);
             }
         },
         ShowSended(cantidad) {
             if (this.modoCompra) {
-                this.CantidadRecibida = this.roundNumber(cantidad * this.compra);
+                this.CantidadRecibida = this.roundNumber(cantidad * this.exchange.compra);
             } else {
-                this.CantidadRecibida = this.roundNumber(cantidad / this.venta);
+                this.CantidadRecibida = this.roundNumber(cantidad / this.exchange.venta);
             }
         },
         roundNumber(num) {
             const numFixed = parseFloat(num).toFixed( 3 );
-            return Math.round( numFixed * 100) / 100;
+            return Math.abs((Math.round( numFixed * 100) / 100));
         }
 
         //     recibe(newValue){
@@ -160,13 +162,13 @@ export default{
         //     if(this.actualizandoCompra == true) return // If the another watch is running this get out 
 
         //     if (this.modoCompra ) {
-        //         this.CantidadEnviada = +parseFloat(newValue * this.venta).toFixed( 3 );
+        //         this.CantidadEnviada = +parseFloat(newValue * this.exchange.venta).toFixed( 3 );
         //         setTimeout(() => {
         //             this.actualizandoVenta = false; 
         //         }, 200);
         //     } 
         //     else {
-        //         this.CantidadEnviada = +parseFloat(newValue / this.compra).toFixed( 3 );
+        //         this.CantidadEnviada = +parseFloat(newValue / this.exchange.compra).toFixed( 3 );
         //         setTimeout(() => {
         //             this.actualizandoVenta = false; 
         //         }, 200);
@@ -177,13 +179,13 @@ export default{
         //     if(this.actualizandoVenta == true) return // If the another watch is running this get out
 
         //     if (this.modoCompra) {
-        //         this.CantidadRecibida = +parseFloat(newValue / this.venta).toFixed( 3 );
+        //         this.CantidadRecibida = +parseFloat(newValue / this.exchange.venta).toFixed( 3 );
         //         setTimeout(() => {
         //             this.actualizandoCompra = false;
         //         }, 200);
         //     } 
         //     else {
-        //         this.CantidadRecibida = +parseFloat(newValue * this.compra).toFixed( 3 );
+        //         this.CantidadRecibida = +parseFloat(newValue * this.exchange.compra).toFixed( 3 );
         //         setTimeout(() => {
         //             this.actualizandoCompra = false;
         //         }, 200);
@@ -197,46 +199,29 @@ export default{
             secondExchange: 'getSecondExchange',
             worstExchange: 'getWorstExchange',
         }),
-        // exchange(){
-        //     return this.$store.getters.getExchange;
-        // },
+        simbolMoney() {
+            return this.modoCompra ? "$" : "S/";
+        },
+
         exchanges(){
             return this.$store.state.exchanges;
         },
-        // secondExchange(){
-        //     return this.$store.getters.getSecondExchange;
-        // },
-        // worstExchange(){
-        //     return this.$store.getters.getWorstExchange;
-        // },
 
+        comparePrices(){
+            if (this.modoCompra) {
+                return this.roundNumber(this.exchange.compra * this.CantidadEnviada - this.worstExchange.compra * this.CantidadEnviada);
+            } else {
+                return this.roundNumber(this.exchange.venta * this.CantidadEnviada - this.worstExchange.venta * this.CantidadEnviada);
+            }
+        },
 
+        textCompraoVenta(){
+            return this.modoCompra ? "Compra" : "Venta";
+        }
 
-        //  ShowReceived() {
-        //      if (this.modoCompra) {
-        //          return +parseFloat(this.CantidadEnviada / this.venta).toFixed( 3 );
-        //      } else {
-        //          return +parseFloat(this.CantidadEnviada * this.compra).toFixed( 3 );
-        //      }
-        //  },
-        //  ShowSended() {
-        //      if (this.modoCompra) {
-        //          return +parseFloat(this.CantidadRecibida * this.venta).toFixed( 3 );
-        //      } else {
-        //          return +parseFloat(this.CantidadRecibida / this.compra).toFixed( 3 );
-        //      }
-        //  }
     },
     watch:{
-        // modoCompra: function(newValue){
-        //     this.flip() 
-        // },
-        // CantidadEnviada(newValue) {
-        //     this.envia(newValue)
-        // },
-        // CantidadRecibida(newValue) {
-        //     this.recibe(newValue)
-        // },
+        
     },
     components: {
     FlipChange,

@@ -11,7 +11,7 @@ export const state = () => ({
 export const getters = {
     getExchange: state => reactive(state.exchanges[0]),
     getSecondExchange: state => reactive(state.exchanges[1]),
-    getWorstExchange: state => reactive(state.exchanges[state.exchange.length - 1])
+    getWorstExchange: state => reactive(state.exchanges[state.exchanges.length - 1])
 };
 
 export const mutations = {

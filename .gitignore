@@ -91,3 +91,6 @@ sw.*
 
 # server cheerio
 server/cheerio.js
+
+# db credentials
+server/firebaseKey.json

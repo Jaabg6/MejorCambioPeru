@@ -39,6 +39,11 @@ export default {
                 // console.log("🚀 ~ file: index.vue ~ line 39 ~ this.socket.on ~ data", data[0])
                 this.$store.commit("setSunat", data[1]);
                 this.$store.commit("setBancos", data[2]);
+
+                // this.$store.commit("setExchanges", data.casasDeCambio);
+                // this.$store.commit("setSunat", data.grupoSunat);
+                // this.$store.commit("setBancos", data.BancosTradicionales);
+
                 // this.$store.commit("setExchange", data[0][0]);
                 // this.$store.commit("setWorstExchange", data[0][data[0].length - 1]);
                 // this.$store.commit("setSecondExchange", data[0][1]);

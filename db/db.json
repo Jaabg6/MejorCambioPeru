@@ -1,0 +1,175 @@
+{
+  "allData": {
+    "0": [
+      {
+        "title": "Dollar House",
+        "compra": "3.913",
+        "link": "https://dollarhouse.pe",
+        "imgClass": "i-dollar-house",
+        "venta": "3.923"
+      },
+      {
+        "title": "inka money",
+        "compra": "3.907",
+        "link": "https://inkamoney.com",
+        "imgClass": "i-inkamoney",
+        "venta": "3.925"
+      },
+      {
+        "title": "Instakash",
+        "compra": "3.906",
+        "link": "https://instakash.net",
+        "imgClass": "i-instakash",
+        "venta": "3.918"
+      },
+      {
+        "title": "Perú dolar",
+        "compra": "3.906",
+        "link": "https://perudolar.pe",
+        "imgClass": "i-perudolar",
+        "venta": "3.923"
+      },
+      {
+        "title": "cambiosol",
+        "compra": "3.905",
+        "link": "https://cambiosol.pe",
+        "imgClass": "i-cambiosol",
+        "venta": "3.921"
+      },
+      {
+        "title": "Tu Cambista",
+        "compra": "3.903",
+        "link": "https://tucambista.pe",
+        "imgClass": "i-tu-cambista",
+        "venta": "3.923"
+      },
+      {
+        "title": "Securex",
+        "compra": "3.903",
+        "link": "https://securex.pe",
+        "imgClass": "i-securex",
+        "venta": "3.919"
+      },
+      {
+        "title": "CambiaFX",
+        "compra": "3.901",
+        "link": "https://cambiafx.pe",
+        "imgClass": "i-cambia-fx",
+        "venta": "3.924"
+      },
+      {
+        "title": "Yanki",
+        "compra": "3.900",
+        "link": "https://yanki.pe",
+        "imgClass": "i-yanki",
+        "venta": "3.925"
+      },
+      {
+        "title": "Western Union",
+        "compra": "3.900",
+        "link": "https://westernunionperu.pe",
+        "imgClass": "i-western-union",
+        "venta": "3.920"
+      },
+      {
+        "title": "TKambio",
+        "compra": "3.900",
+        "link": "https://www.tkambio.com",
+        "imgClass": "i-tkambio",
+        "venta": "3.923"
+      },
+      {
+        "title": "Cambi",
+        "compra": "3.900",
+        "link": "https://cambi.pe",
+        "imgClass": "i-cambi",
+        "venta": "3.921"
+      },
+      {
+        "title": "Hir Power",
+        "compra": "3.900",
+        "link": "https://hirpower.com",
+        "imgClass": "i-hirpower",
+        "venta": "3.930"
+      },
+      {
+        "title": "sr Cambio",
+        "compra": "3.900",
+        "link": "https://srcambio.pe",
+        "imgClass": "i-sr-cambio",
+        "venta": "3.925"
+      },
+      {
+        "title": "terracash",
+        "compra": "3.900",
+        "link": "https://terracash.pe",
+        "imgClass": "i-terracash",
+        "venta": "3.928"
+      },
+      {
+        "title": "DLS Money",
+        "compra": "3.895",
+        "link": "https://dlsmoney.com",
+        "imgClass": "i-dlsmoney",
+        "venta": "3.930"
+      },
+      {
+        "title": "Roblex",
+        "compra": "3.895",
+        "link": "https://roblex.pe",
+        "imgClass": "i-roblex",
+        "venta": "3.925"
+      },
+      {
+        "title": "Cambio Mundial",
+        "compra": "3.890",
+        "link": "https://www.cambiomundial.com",
+        "imgClass": "i-cambiomundial",
+        "venta": "3.930"
+      }
+    ],
+    "1": {
+      "title": "Sunat",
+      "compra": "3.914",
+      "venta": "3.919"
+    },
+    "2": [
+      {
+        "title": "Interbank",
+        "compra": "3.894",
+        "venta": "3.951",
+        "link": "https://www.interbank.com.pe/",
+        "imgClass": "https://i.imgur.com/7DHARcc.webp"
+      },
+      {
+        "title": "BCP",
+        "compra": "3.859",
+        "venta": "3.985",
+        "link": "https://www.bcp.com.pe/",
+        "imgClass": "https://i.imgur.com/1ffSteT.webp"
+      },
+      {
+        "title": "BBVA",
+        "compra": "3.854",
+        "venta": "4.012",
+        "link": "https://www.bbva.com.pe/",
+        "imgClass": "https://i.imgur.com/BN9HcW9.webp"
+      },
+      {
+        "title": "Scotiabank",
+        "compra": "3.836",
+        "venta": "4.009",
+        "link": "https://www.scotiabank.com.pe/",
+        "imgClass": "https://i.imgur.com/0jylKTL.webp"
+      },
+      {
+        "title": "Banco de la Nación",
+        "compra": "3.700",
+        "venta": "3.860",
+        "link": "https://www.bn.com.pe/",
+        "imgClass": "https://i.imgur.com/NbhkBx0.webp"
+      }
+    ],
+    "3": "4/7/2022 0:25:48"
+  }
+}
