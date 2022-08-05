@@ -39,7 +39,9 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: [
+    "~/plugins/lottie-vue-player.client.js",
+  ],
   /*
    ** Nuxt.js dev-modules
    */

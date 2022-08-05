@@ -1,23 +1,23 @@
 <template>
-    <div class="min-h-screen bg-gradient-to-t from-red-900 to-red-light">
+    <div class="min-h-screen bg-gradient-to-t from-red-900 to-red-light  relative">
         
         <!-- grid main -->
         <div class="grid grid-cols-10 min-h-screen lg:mx-20 gap-2">
             <!-- 1 -->
-            <div class="col-span-5 self-center">
+            <div class="col-span-10 md:col-span-5 self-center">
                 <div class=" text-white">
-                    <h1 class="uppercase text-5xl font-mono antialiased font-black">Ahorra y cambia al mejor precio</h1>
-                    <p class="text-2xl font-mono antialiased font-black">Busca en las principales casas de cambio y encuentra tu mejor opcion al dia</p>
+                    <h1 class="uppercase text-2xl md:text-5xl font-mono antialiased font-black">Ahorra y cambia al mejor precio</h1>
+                    <p class="text-lg md:text-2xl font-mono antialiased font-black">Busca en las principales casas de cambio y encuentra tu mejor opcion al dia</p>
                 </div>
 
             </div>
             <!-- 1 -->
 
             <!-- 2 -->
-            <div class="col-span-5 self-center z-10">
+            <div class="col-span-10 md:col-span-5 self-center z-10">
                 <div class="bg-dark py-6 mx-10 rounded-lg shadow-lg shadow-black">
                     <!-- card title -->
-                    <h2 class="text-white font-mono antialiased text-center text-2xl">El mejor cambio para {{ textCompraoVenta }}</h2>
+                    <h2 class="text-white font-mono antialiased text-center text-2xl">{{ exchange.title }}: Mejor {{ textCompraoVenta }}</h2>
 
                         <!-- button change mode -->
                         <div class="inline-flex justify-center w-full rounded-md shadow-sm mt-2" role="group">
@@ -63,6 +63,30 @@
                             </div>
                             <!-- alert savings-->
 
+                            <!-- button SortTop -->
+                            
+                            <div class="relative mt-2 cursor-pointer">
+                                <div @click="sortTop()" id="dropdownToggleButton" data-dropdown-toggle="dropdownToggle" class="border border-gray-200 text-white w-full bg-dark focus:outline-none font-medium rounded-lg text-sm px-4 py-4 text-center grid grid-flow-col items-center justify-between ">
+                                
+                                <span>Ordenar por Mejor {{ textCompraoVenta }}</span>
+
+                                <div for="default-toggle-1" class="inline-flex relative items-center w-full cursor-pointer"  >
+                                                <input @click="sortTop()" type="checkbox" :value="shortedByCompra" id="default-toggle-1" class="sr-only peer">
+                                                <div  :class="shortedByCompra ? ' after:bg-red-light after:translate-x-full' : '' " class="w-11 h-6 peer-focus:outline-none rounded-full peer dark:bg-gray-700  peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 "></div>
+
+                                </div>
+                                            
+                                        </div>
+
+
+                                                                
+                                <!-- Dropdown menu -->
+
+                            </div>
+                            <!-- button SortTop -->
+
+
+
                             <!-- button Change Now -->
                             <div class="mt-10 ">
                                 <a :href="exchange.link" class="text-center uppercase text-white font-bold font-mono antialiased focus:outline-none focus:shadow-outline border border-gray-200 rounded-lg py-4 block appearance-none leading-normal bg-dark hover:bg-white hover:text-black hover:shadow-red-light hover:shadow-lg">
@@ -98,7 +122,7 @@
 import FlipChange from '@/components/svg-icons/flipChange.vue'
 import FlagPeru from './svg-icons/flagPeru.vue'
 import FlagUSA from './svg-icons/flagUSA.vue'
-import { mapGetters } from 'vuex'
+import { mapGetters, mapState } from 'vuex'
 
 export default{
     data() {
@@ -118,6 +142,9 @@ export default{
         }, 800);
     },
     methods: {
+        sortTop(){
+            this.$store.dispatch('sortTop', this.shortedByCompra);
+        },
         buttonCompra() {
             if(this.modoCompra == true) return
             this.flip()
@@ -202,10 +229,13 @@ export default{
         simbolMoney() {
             return this.modoCompra ? "$" : "S/";
         },
+        ...mapState({
+            shortedByCompra: state => state.shortedByCompra,
+            exchanges: state => state.exchanges,
+        }),
 
-        exchanges(){
-            return this.$store.state.exchanges;
-        },
+
+
 
         comparePrices(){
             if (this.modoCompra) {
@@ -216,7 +246,7 @@ export default{
         },
 
         textCompraoVenta(){
-            return this.modoCompra ? "Compra" : "Venta";
+            return this.shortedByCompra ? "Compra" : "Venta";
         }
 
     },

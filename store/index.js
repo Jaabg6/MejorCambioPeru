@@ -51,14 +51,36 @@ export const mutations = {
                     return b.compra - a.compra
                 }
             )}
-        }
+    },
+
+    sortBancos( state, shortedByCompra ) {
+        if(shortedByCompra === true){
+            state.bancos.sort((a, b) => {
+                state.shortedByCompra = false; // now sort by venta
+
+                return a.venta - b.venta
+            }
+        )}
+        if(shortedByCompra === false){
+        state.bancos.sort((a, b) => {
+                state.shortedByCompra = true; // now sort by venta
+                return b.compra - a.compra
+            }
+        )}
+    }
+
+
         
 
 
 };
 
 export const actions = {
-    
+
+    async sortTop({ commit }, shortedByCompra) {
+        commit("sortExchanges", shortedByCompra)
+        commit("sortBancos", shortedByCompra)
+    },
 
     // async sortExchanges({ commit, state }, exchanges) {
     // console.log("🚀 ~ file: index.js ~ line 29 ~ sortExchanges ~ exchanges", exchanges)

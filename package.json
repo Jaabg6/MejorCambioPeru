@@ -12,6 +12,7 @@
     "heroku-postbuild": "npm run build"
   },
   "dependencies": {
+    "@lottiefiles/vue-lottie-player": "^1.0.9",
     "axios": "^0.27.2",
     "cheerio": "^1.0.0-rc.11",
     "cross-env": "^5.2.0",

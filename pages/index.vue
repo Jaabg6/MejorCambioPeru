@@ -4,22 +4,23 @@
     <NavbarMain />
     <HeadMain />
     <ListBanks />
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-   
-
-  
-
-
+    <MasInformacion />
+    <Footer />
     
   </div>
 </template>
 
 <script>
+import NavbarMain from '../components/NavbarMain.vue';
+import HeadMain from '../components/HeadMain.vue';
 import ListBanks from '../components/ListBanks.vue';
-
+import MasInformacion from '../components/MasInformacion.vue';
+import Footer from '../components/Footer.vue';
 
 
 export default {
+    components: { ListBanks, MasInformacion , NavbarMain, HeadMain, Footer },
+
     data() {
         return {};
     },
@@ -52,7 +53,7 @@ export default {
             })
         });
     },
-    components: { ListBanks }
+
 };
 </script>
 

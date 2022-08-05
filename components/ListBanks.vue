@@ -1,8 +1,8 @@
 <template>
-    <div class="min-h-fit bg-slate-200 py-10">
-                <div class="grid grid-cols-10 h-full lg:mx-20 gap-2">
+    <div class="min-h-fit bg-slate-200 z-10">
+                <div class="grid grid-cols-10 h-full lg:mx-20 gap-2 mx-10 md:mx-0">
                     <!-- 1 -->
-                    <div class="col-span-5 self-start"> 
+                    <div class="col-span-10 md:col-span-5"> 
                         <h2 class="text-center text-white font-mono antialiased text-3xl font-black mb-5 bg-dark rounded-lg  py-2 px-3">Top Mejor Cambio Online</h2>
                         <!-- list scroll -->
                         <div class="relative rounded-xl overflow-auto ">
@@ -32,18 +32,18 @@
                         </div>
                         </div>
 
-                        <button @click="sortExchanges()" class="px-10 bg-dark mt-5 text-white"> Cambiar Orden {{ shortedByCompra }}</button>
+                        
                     </div>
                     <!-- 1 -->
 
                     <!-- 2 -->
-                    <div class="col-span-5 ">
+                    <div class="col-span-10 md:col-span-5 ">
                         <!-- Sunat -->
 
-                        <h2 class="text-center mx-auto  max-w-md text-white font-mono antialiased text-3xl font-black mb-5 bg-dark rounded-lg  py-2 px-3">Presencial segun Sunat</h2>
+                        <h2 class="text-center mx-auto  md:max-w-md text-white font-mono antialiased text-3xl font-black mb-5 bg-dark rounded-lg  py-2 px-3">Presencial segun Sunat</h2>
 
 
-                        <div class="grid grid-cols-10 gap-4 p-4 max-w-md mx-auto bg-dark rounded-lg">
+                        <div class="grid grid-cols-10 gap-4 p-4 md:max-w-md mx-auto bg-dark rounded-lg">
                             <div class="col-span-10 justify-center grid">
                                 <!-- <h3 class="text-center text-white font-mono antialiased text-xl">Sunat</h3> -->
                                 <img src="https://i.imgur.com/6Hs6mj6.webp?1" alt="Logo Sunat" class="h-8">
@@ -64,9 +64,9 @@
                         <!-- Sunat -->
 
                         <!-- Bancos Tradicionales -->
-                        <h2 class="text-center mx-auto  max-w-md text-white font-mono antialiased text-3xl font-black mb-5 bg-dark rounded-lg  py-2 px-3 mt-5">Bancos Tradicionales</h2>
+                        <h2 class="text-center mx-auto  md:max-w-md text-white font-mono antialiased text-3xl font-black mb-5 bg-dark rounded-lg  py-2 px-3 mt-5">Bancos Tradicionales</h2>
 
-                        <div class="relative rounded-xl overflow-auto mx-auto max-w-md">
+                        <div class="relative rounded-xl overflow-auto mx-auto md:max-w-md">
                             <div class="overflow-y-scroll h-40 relative scrollbar mx-auto  dark:bg-dark shadow-lg ring-1 ring-black/5 rounded-xl flex flex-col divide-y dark:divide-slate-200/5">
 
                             <!-- list -->
@@ -98,15 +98,27 @@
                     </div>
                     <!-- 2 -->
                 </div>
+
+
+
+
     </div>
 </template>
 
 <script>
 export default {
   methods: {
-    sortExchanges(){
+    // sortTop(){
+    //   // console.log('envia dispatch')
+    //   this.$store.commit('sortExchanges', this.shortedByCompra)
+    //   this.$store.commit('sortBancos', this.shortedByCompra)
+    // },
+    
+    sortTop(){
       // console.log('envia dispatch')
-      this.$store.commit('sortExchanges', this.shortedByCompra)
+
+      this.$store.dispatch('sortTop', this.shortedByCompra)
+      // this.$store.commit('sortBancos', this.shortedByCompra)
     }
   },
     computed: {

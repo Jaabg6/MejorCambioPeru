@@ -6,7 +6,7 @@ const io = require("socket.io")(server, {
   allowEIO3: true, // false by default
 });
 
-console.log(dataInDB);
+// console.log(dataInDB);
 // buscarPrecios is a private function, if you want to use it, you need create that function in ./cheerio.js
 // I dont share this because if you are watching this code, you know that im frontend developer, so the server is not important here
 const { buscarPrecios } = require("./cheerio.js");
