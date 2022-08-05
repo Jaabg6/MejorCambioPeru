@@ -1,9 +1,9 @@
 <template>
-    <div class="min-h-fit bg-slate-200 z-10">
-                <div class="grid grid-cols-10 h-full lg:mx-20 gap-2 mx-10 md:mx-0">
+    <div class="min-h-fit bg-slate-200 z-10 pt-10 md:pt-0">
+                <div class="grid grid-cols-10 h-full lg:mx-20 gap-2 mx-2 sm:mx-10 md:mx-0">
                     <!-- 1 -->
-                    <div class="col-span-10 md:col-span-5"> 
-                        <h2 class="text-center text-white font-mono antialiased text-3xl font-black mb-5 bg-dark rounded-lg  py-2 px-3">Top Mejor Cambio Online</h2>
+                    <div class="col-span-10 md:col-span-5" id="Cambio-Online"> 
+                        <h2 class="text-center text-white font-mono antialiased text-xl md:text-3xl font-black mb-5 bg-dark rounded-lg  py-2 px-3">Top Mejor Cambio Online</h2>
                         <!-- list scroll -->
                         <div class="relative rounded-xl overflow-auto ">
                         <div class="scrollbar overflow-y-scroll h-96 relative  mx-auto  dark:bg-dark shadow-lg ring-1 ring-black/5 rounded-xl flex flex-col divide-y dark:divide-slate-200/5">
@@ -11,19 +11,19 @@
                             <div class="grid grid-cols-10 gap-4 p-4 w-full bg-dark"  v-for="(exchange, id) in exchanges" :key="exchange">
                                     
                                     <div class="col-span-10 grid ">
-                                        <h3 class="text-center text-white font-mono antialiased text-xl">{{id + 1}} - {{exchange.title}}</h3>
+                                        <h3 class="text-center text-white font-mono antialiased text-lg md:text-xl">{{id + 1}} - {{exchange.title}}</h3>
                                         <div class="h-8 " :class="exchange.imgClass"></div>
                                     </div>
                                     <div class="col-span-4 self-center grid justify-items-center h-8 ">
-                                        <a :href="exchange.link" class="bg-white mx-auto  hover:shadow-red-light hover:shadow-lg py-2 px-5 rounded-lg font-mono antialiased font-bold">Cambiar</a>
+                                        <a :href="exchange.link" class="bg-white mx-auto  hover:shadow-red-light hover:shadow-lg py-2 px-2 md:px-5 rounded-lg font-mono antialiased font-bold">Cambiar</a>
                                     </div>
                                     <div class="col-span-3 grid grid-flow-row text-center">
                                         <span class="text-white font-mono antialiased font-bold text-xs w-full">compra</span>
-                                        <span class="text-white font-mono antialiased text-xl" >{{ exchange.compra}}</span>
+                                        <span class="text-white font-mono antialiased text-lg md:text-xl" >{{ exchange.compra}}</span>
                                     </div>
                                     <div class="col-span-3 grid grid-flow-row text-center">
                                         <span class="text-white font-mono antialiased font-bold text-xs w-full">venta</span>
-                                        <span class="text-white font-mono antialiased text-xl">{{ exchange.venta}}</span>
+                                        <span class="text-white font-mono antialiased text-lg md:text-xl">{{ exchange.venta}}</span>
                                     </div>
 
                             </div>
@@ -37,56 +37,56 @@
                     <!-- 1 -->
 
                     <!-- 2 -->
-                    <div class="col-span-10 md:col-span-5 ">
+                    <div class="col-span-10 md:col-span-5">
                         <!-- Sunat -->
 
-                        <h2 class="text-center mx-auto  md:max-w-md text-white font-mono antialiased text-3xl font-black mb-5 bg-dark rounded-lg  py-2 px-3">Presencial segun Sunat</h2>
+                        <h2 id="Cambio-Sunat" class="mt-5 md:mt-0 text-center mx-auto  md:max-w-md text-white font-mono antialiased text-xl md:text-3xl font-black mb-5 bg-dark rounded-lg  py-2 px-3">Presencial segun Sunat</h2>
 
 
-                        <div class="grid grid-cols-10 gap-4 p-4 md:max-w-md mx-auto bg-dark rounded-lg">
+                        <div class="grid grid-cols-10 gap-4 p-4 md:max-w-md mx-auto bg-dark rounded-lg ">
                             <div class="col-span-10 justify-center grid">
-                                <!-- <h3 class="text-center text-white font-mono antialiased text-xl">Sunat</h3> -->
+                                <!-- <h3 class="text-center text-white font-mono antialiased text-lg md:text-xl">Sunat</h3> -->
                                 <img src="https://i.imgur.com/6Hs6mj6.webp?1" alt="Logo Sunat" class="h-8">
                             </div>
                             <div class="col-span-4 self-center grid justify-items-center h-8 ">
-                                <a href="http://e-consulta.sunat.gob.pe/cl-at-ittipcam/tcS01Alias" class="bg-white mx-auto  hover:shadow-red-light hover:shadow-lg py-2 px-10 rounded-lg font-mono antialiased font-bold">Ver</a>
+                                <a href="http://e-consulta.sunat.gob.pe/cl-at-ittipcam/tcS01Alias" class="bg-white mx-auto  hover:shadow-red-light hover:shadow-lg py-2 px-7 md:px-10 rounded-lg font-mono antialiased font-bold">Ver</a>
                             </div>
                             <div class="col-span-3 grid grid-flow-row text-center">
                                 <span class="text-white font-mono antialiased font-bold text-xs w-full">compra</span>
-                                <span class="text-white font-mono antialiased text-xl" >{{ sunat.compra}}</span>
+                                <span class="text-white font-mono antialiased text-lg md:text-xl" >{{ sunat.compra}}</span>
                             </div>
                             <div class="col-span-3 grid grid-flow-row text-center">
                                 <span class="text-white font-mono antialiased font-bold text-xs w-full">venta</span>
-                                <span class="text-white font-mono antialiased text-xl">{{ sunat.venta}}</span>
+                                <span class="text-white font-mono antialiased text-lg md:text-xl">{{ sunat.venta}}</span>
                             </div>
                         </div>
 
                         <!-- Sunat -->
 
                         <!-- Bancos Tradicionales -->
-                        <h2 class="text-center mx-auto  md:max-w-md text-white font-mono antialiased text-3xl font-black mb-5 bg-dark rounded-lg  py-2 px-3 mt-5">Bancos Tradicionales</h2>
+                        <h2 id="Cambio-Bancos" class="text-center mx-auto  md:max-w-md text-white font-mono antialiased text-xl md:text-3xl font-black mb-5 bg-dark rounded-lg  py-2 px-3 mt-5">Bancos Tradicionales</h2>
 
-                        <div class="relative rounded-xl overflow-auto mx-auto md:max-w-md">
+                        <div class="relative rounded-xl overflow-auto mx-auto md:max-w-md ">
                             <div class="overflow-y-scroll h-40 relative scrollbar mx-auto  dark:bg-dark shadow-lg ring-1 ring-black/5 rounded-xl flex flex-col divide-y dark:divide-slate-200/5">
 
                             <!-- list -->
                             <div class="grid grid-cols-10 gap-4 p-4 w-full bg-dark"  v-for="(banco, id) in bancos" :key="banco">
                                     
                                     <div class="col-span-10 grid ">
-                                        <h3 class="text-center text-white font-mono antialiased text-xl">{{id + 1}} - {{banco.title}}</h3>
+                                        <h3 class="text-center text-white font-mono antialiased text-lg md:text-xl">{{id + 1}} - {{banco.title}}</h3>
                                         <img :src="banco.imgClass" :alt="'Logo ' + banco.title" class="h-8">
 
                                     </div>
                                     <div class="col-span-4 self-center grid justify-items-center h-8 ">
-                                        <a :href="banco.link" class="bg-white mx-auto  hover:shadow-red-light hover:shadow-lg py-2 px-5 rounded-lg font-mono antialiased font-bold">Cambiar</a>
+                                        <a :href="banco.link" class="bg-white mx-auto  hover:shadow-red-light hover:shadow-lg py-2 px-2 md:px-5 rounded-lg font-mono antialiased font-bold">Cambiar</a>
                                     </div>
                                     <div class="col-span-3 grid grid-flow-row text-center">
                                         <span class="text-white font-mono antialiased font-bold text-xs w-full">compra</span>
-                                        <span class="text-white font-mono antialiased text-xl" >{{ banco.compra}}</span>
+                                        <span class="text-white font-mono antialiased text-lg md:text-xl" >{{ banco.compra}}</span>
                                     </div>
                                     <div class="col-span-3 grid grid-flow-row text-center">
                                         <span class="text-white font-mono antialiased font-bold text-xs w-full">venta</span>
-                                        <span class="text-white font-mono antialiased text-xl">{{ banco.venta}}</span>
+                                        <span class="text-white font-mono antialiased text-lg md:text-xl">{{ banco.venta}}</span>
                                     </div>
 
                             </div>
@@ -101,24 +101,17 @@
 
 
 
-
     </div>
 </template>
 
 <script>
 export default {
   methods: {
-    // sortTop(){
-    //   // console.log('envia dispatch')
-    //   this.$store.commit('sortExchanges', this.shortedByCompra)
-    //   this.$store.commit('sortBancos', this.shortedByCompra)
-    // },
-    
-    sortTop(){
-      // console.log('envia dispatch')
 
+    sortTop(){
+      
       this.$store.dispatch('sortTop', this.shortedByCompra)
-      // this.$store.commit('sortBancos', this.shortedByCompra)
+
     }
   },
     computed: {
@@ -162,6 +155,17 @@ export default {
 .scrollbar::-webkit-scrollbar-thumb:hover {
     background: #1b191a;
 }
+
+@media (max-width: 640px) {
+    .scrollbar::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+    }
+}
+  
+
+
+
 
 .i-rissan {
   background: url(https://rissanpe.com/storage/2021/10/logo.svg) no-repeat;

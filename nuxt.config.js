@@ -41,6 +41,7 @@ module.exports = {
    */
   plugins: [
     "~/plugins/lottie-vue-player.client.js",
+    "~/plugins/vue2-smooth-scroll.js",
   ],
   /*
    ** Nuxt.js dev-modules

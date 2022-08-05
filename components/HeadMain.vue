@@ -1,13 +1,13 @@
 <template>
-    <div class="min-h-screen bg-gradient-to-t from-red-900 to-red-light  relative">
+    <div class="min-h-screen bg-gradient-to-t from-red-900 to-red-light  relative" id="inicio">
         
         <!-- grid main -->
-        <div class="grid grid-cols-10 min-h-screen lg:mx-20 gap-2">
+        <div class="grid grid-cols-10 min-h-screen lg:mx-20 gap-2 pt-32 md:pt-0">
             <!-- 1 -->
-            <div class="col-span-10 md:col-span-5 self-center">
+            <div class="col-span-10 md:col-span-5 self-center text-center md:text-left mx-10 md:mx-0">
                 <div class=" text-white">
                     <h1 class="uppercase text-2xl md:text-5xl font-mono antialiased font-black">Ahorra y cambia al mejor precio</h1>
-                    <p class="text-lg md:text-2xl font-mono antialiased font-black">Busca en las principales casas de cambio y encuentra tu mejor opcion al dia</p>
+                    <p class="text-md md:text-2xl font-mono antialiased font-black">Busca en las principales casas de cambio y encuentra tu mejor opcion al dia</p>
                 </div>
 
             </div>
@@ -15,16 +15,16 @@
 
             <!-- 2 -->
             <div class="col-span-10 md:col-span-5 self-center z-10">
-                <div class="bg-dark py-6 mx-10 rounded-lg shadow-lg shadow-black">
+                <div class="bg-dark py-6 mx-2 sm:mx-5  rounded-lg shadow-lg shadow-black">
                     <!-- card title -->
-                    <h2 class="text-white font-mono antialiased text-center text-2xl">{{ exchange.title }}: Mejor {{ textCompraoVenta }}</h2>
+                    <h2 class="text-white font-mono antialiased text-center text-lg font-black md:font-normal md:text-2xl">{{ exchange.title }}: Mejor {{ textCompraoVenta }}</h2>
 
                         <!-- button change mode -->
-                        <div class="inline-flex justify-center w-full rounded-md shadow-sm mt-2" role="group">
-                            <button :class="[modoCompra == true ? 'focus:z-10 ring-2 ring-red-light text-lg bg-white' : 'bg-dark text-white hover:bg-red-light']" @click="buttonCompra()" type="button"  class="py-2 px-10 text-sm font-medium rounded-l-lg border border-gray-200">
+                        <div class="inline-flex justify-center w-full rounded-md mt-2" role="group">
+                            <button :class="[modoCompra == true ? 'focus:z-10 ring-2 ring-red-light text-sm md:text-lg bg-white' : 'bg-dark text-white hover:bg-red-light']" @click="buttonCompra()" type="button"  class="py-2 px-6 md:px-10 text-sm font-medium rounded-l-lg border border-gray-200">
                                 Compra: <span class="text-md font-bold ">{{ exchange.compra }}</span>
                             </button>
-                            <button :class="[ modoCompra == false ? 'focus:z-10 ring-2 ring-red-light text-lg bg-white' : 'bg-dark text-white hover:bg-red-light']" @click="buttonVenta()" type="button" class="py-2 px-10 text-sm font-medium rounded-r-md border border-gray-200">
+                            <button :class="[ modoCompra == false ? 'focus:z-10 ring-2 ring-red-light text-sm md:text-lg bg-white' : 'bg-dark text-white hover:bg-red-light']" @click="buttonVenta()" type="button" class="py-2 px-6 md:px-10 text-sm font-medium rounded-r-md border border-gray-200">
                                 Venta: <span class="text-md font-bold ">{{ exchange.venta }}</span>
                             </button>
                         </div>
@@ -32,18 +32,19 @@
                         
                         <!-- input section -->
                         <div class="mx-10">
-                            <div class="relative mt-10">
+
+                            <div class="relative mt-5 md:mt-10">
 
                                 <FlagUSA class="right-5 top-2 absolute" v-if="modoCompra"/>
                                 <FlagPeru class="right-5 top-2 absolute" v-else />
 
 
                                 <label for="CantidadEnviada" class="left-2 -top-4 px-1 bg-dark text-white absolute block text-1xl font-bold font-mono antialiased">Envias</label>
-                                <input type="number" v-model="CantidadEnviada" @keyup="ShowSended(CantidadEnviada)" class="bg-dark text-2xl text-white font-bold font-mono antialiased focus:outline-none focus:shadow-outline border border-gray-200 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" placeholder="Quiero enviar...">
+                                <input type="number" v-model="CantidadEnviada" @keyup="ShowSended(CantidadEnviada)" class="bg-dark text-xl md:text-2xl text-white font-bold font-mono antialiased focus:outline-none focus:shadow-outline border border-gray-200 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" placeholder="Quiero enviar...">
                             
                                 <!-- button flip -->
                                 <button @click="flip()" class="z-10 absolute -bottom-7  right-5 text-white font-bold font-mono antialiased focus:outline-none focus:shadow-outline border border-gray-200 rounded-lg py-1 px-4 block appearance-none leading-normal bg-dark hover:bg-red-light hover:scale-125">
-                                    <FlipChange class="w-8 fill-slate-200"/>
+                                    <FlipChange class="w-7 md:w-8 fill-slate-200"/>
                                 </button>
                                 <!-- button flip -->
                             
@@ -54,19 +55,19 @@
                                 <FlagUSA class="right-5 top-2 absolute" v-else/>
 
                                 <label for="CantidadRecibida" class="left-2 -top-4 px-1 bg-dark text-white absolute block text-1xl font-bold font-mono antialiased">Recibes</label>
-                                <input type="number" v-model="CantidadRecibida" @keyup="ShowReceived(CantidadRecibida)" class="bg-dark text-2xl text-white font-bold font-mono antialiased focus:outline-none focus:shadow-outline border border-gray-200 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" placeholder="Quiero recibir...">
+                                <input type="number" v-model="CantidadRecibida" @keyup="ShowReceived(CantidadRecibida)" class="bg-dark text-xl md:text-2xl text-white font-bold font-mono antialiased focus:outline-none focus:shadow-outline border border-gray-200 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" placeholder="Quiero recibir...">
                             </div>
 
                             <!-- alert savings -->
-                            <div class="px-2 text-black font-mono antialiased mt-3 bg-white border rounded-lg font-black text-sm">
-                                <p>Ahorras <span class="text-lg font-bold">{{ simbolMoney + comparePrices }} </span>  con <span class="text-lg font-bold"> {{ exchange.title }}</span> <br> Comparado con <span class="text-lg font-bold">{{ worstExchange.title }}</span></p>
+                            <div class="px-2 text-black font-mono antialiased mt-3 bg-white border rounded-lg font-black text-xs md:text-sm">
+                                <p>Ahorras <span class="text-sm md:text-lg font-black md:font-bold">{{ simbolMoney + comparePrices }} </span>  con <span class="text-sm md:text-lg font-black md:font-bold"> {{ exchange.title }}</span> <br> Comparado con <span class="text-sm md:text-lg font-black md:font-bold">{{ worstExchange.title }}</span></p>
                             </div>
                             <!-- alert savings-->
 
                             <!-- button SortTop -->
                             
                             <div class="relative mt-2 cursor-pointer">
-                                <div @click="sortTop()" id="dropdownToggleButton" data-dropdown-toggle="dropdownToggle" class="border border-gray-200 text-white w-full bg-dark focus:outline-none font-medium rounded-lg text-sm px-4 py-4 text-center grid grid-flow-col items-center justify-between ">
+                                <div @click="sortTop()" id="dropdownToggleButton" data-dropdown-toggle="dropdownToggle" class="border border-gray-200 text-white w-full bg-dark focus:outline-none font-medium rounded-lg text-xs md:text-sm px-1 md:px-4 py-4 text-center grid grid-flow-col items-center justify-between ">
                                 
                                 <span>Ordenar por Mejor {{ textCompraoVenta }}</span>
 
@@ -183,42 +184,7 @@ export default{
             const numFixed = parseFloat(num).toFixed( 3 );
             return Math.abs((Math.round( numFixed * 100) / 100));
         }
-
-        //     recibe(newValue){
-        //     this.actualizandoVenta = true;
-        //     if(this.actualizandoCompra == true) return // If the another watch is running this get out 
-
-        //     if (this.modoCompra ) {
-        //         this.CantidadEnviada = +parseFloat(newValue * this.exchange.venta).toFixed( 3 );
-        //         setTimeout(() => {
-        //             this.actualizandoVenta = false; 
-        //         }, 200);
-        //     } 
-        //     else {
-        //         this.CantidadEnviada = +parseFloat(newValue / this.exchange.compra).toFixed( 3 );
-        //         setTimeout(() => {
-        //             this.actualizandoVenta = false; 
-        //         }, 200);
-        //     }
-        // },
-        //     envia(newValue){
-        //      this.actualizandoCompra = true;
-        //     if(this.actualizandoVenta == true) return // If the another watch is running this get out
-
-        //     if (this.modoCompra) {
-        //         this.CantidadRecibida = +parseFloat(newValue / this.exchange.venta).toFixed( 3 );
-        //         setTimeout(() => {
-        //             this.actualizandoCompra = false;
-        //         }, 200);
-        //     } 
-        //     else {
-        //         this.CantidadRecibida = +parseFloat(newValue * this.exchange.compra).toFixed( 3 );
-        //         setTimeout(() => {
-        //             this.actualizandoCompra = false;
-        //         }, 200);
-        //     }
-        // }
-
+        
     },
     computed:{
         ...mapGetters({

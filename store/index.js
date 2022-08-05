@@ -5,6 +5,7 @@ export const state = () => ({
     exchanges: [], //all exchanges
     sunat: [],
     bancos: [],
+    fecha: "",
     shortedByCompra: true,
 });
 
@@ -15,6 +16,9 @@ export const getters = {
 };
 
 export const mutations = {
+    setFecha(state, fecha) {
+        state.fecha = fecha;
+    },
     setWorstExchange(state, exchange) {
         state.worstExchange = exchange;
     },
@@ -82,24 +86,6 @@ export const actions = {
         commit("sortBancos", shortedByCompra)
     },
 
-    // async sortExchanges({ commit, state }, exchanges) {
-    // console.log("🚀 ~ file: index.js ~ line 29 ~ sortExchanges ~ exchanges", exchanges)
-
-    //     // console.log(exchanges)
-
-    //     const sortedExchanges = exchanges.sort((a, b) => {
-    //         if(state.shortedByCompra === true){
-    //             return b.venta - a.venta
-    //         }
-    //         else{
-    //             return b.compra - a.compra
-    //         }
-    //     })
-
-    //     commit('setExchanges', sortedExchanges)
-    //     commit('setSortedByCompra')
-        
-    // }
 };
 
 //function to aparently make the state reactive

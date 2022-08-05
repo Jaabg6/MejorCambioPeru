@@ -22,7 +22,7 @@ async function startScraping() {
 }
 
 io.on("connection", (socket) => {
-  console.log("conectado en backend");
+
 
   startScraping();
 
