@@ -95,12 +95,14 @@ To get a local copy up and running follow these simple example steps.
 create a file called cheerio.js in the folder called server (where the app, db ,index files are). There you yourself can program the buscarPrecios function to bring the data of all the exchange houses. the function must return an array with this format:
 
     ```sh
-    [CasasDeCambio, GrupoSunat, BancosTradicionales, dateTime]
+      [CasasDeCambio, GrupoSunat, BancosTradicionales, dateTime]
     ```
 
 This is a project for my personal portfolio, I'm a frontend developer, so I don't see any need to share the backend code here <3 I hope you understand
 
-4. Ready to use
+4. change sockets url. In nuxt.config.js you have to change "https://mejorcambio-peru.herokuapp.com/" for you url app (where is allocated your server)
+
+5. Ready to use
    ```sh
    npm run dev
    ```
