@@ -90,15 +90,15 @@ To get a local copy up and running follow these simple example steps.
    ```sh
    npm install
    ```
-3. Completa el backend
+3. complete the backend
 
-crea un archivo llamado cheerio.js en la carpeta llamada server (donde estan los archivos app, db ,index). Ahi tu mismo puedes programar la funcion buscarPrecios para traer los datos de todas las casas de cambio . la function debe devolver un array con este formato:
+create a file called cheerio.js in the folder called server (where the app, db ,index files are). There you yourself can program the buscarPrecios function to bring the data of all the exchange houses. the function must return an array with this format:
 
-   ```sh
-[casasDeCambio, grupoSunat, bancosTradicionales, dateTime]
-   ```
+    ```sh
+[CasasDeCambio, GrupoSunat, BancosTradicionales, dateTime]
+    ```
 
-Este es un proyecto para mi portafolio personal, soy frontend developer , asi que no veo necesario compartir el codigo del backend aqui <3 espero lo entiendas
+This is a project for my personal portfolio, I'm a frontend developer, so I don't see any need to share the backend code here <3 I hope you understand
 
 4. Ready to use
    ```sh
